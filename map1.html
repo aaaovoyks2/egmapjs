@@ -25,8 +25,7 @@ map.addIcon(35.944571, 136.186228 , "充電箇所","icon-hanadojo.png", 64)
 		select ?uri ?name ?lat ?lng {
 			?uri ic:名称 [ ic:表記 ?name ].
 			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			filter(contains(str(?name),'福井
-'))
+			filter(contains(str(?name),'福井'))
 		} limit 100
 	`
 
@@ -39,6 +38,7 @@ map.addIcon(35.944571, 136.186228 , "充電箇所","icon-hanadojo.png", 64)
 			var name = item.name.value;
 			map.addIcon(lat, lng, name,"icon-carparking.png",64,64)
 			var current = map.addIcon(0, 0, "現在地", "icon-walking.png", 64, 64)
+			});
 	navigator.geolocation.watchPosition(function(gpos) {
 		const pos = [ gpos.coords.latitude, gpos.coords.longitude ]
 		current.setLatLng(pos)
@@ -47,7 +47,7 @@ map.addIcon(35.944571, 136.186228 , "充電箇所","icon-hanadojo.png", 64)
 		alert("現在位置に取得に失敗！")
 	})
 
-	});
+	
 }
 }
 	
